@@ -1,4 +1,5 @@
-import React, { MouseEventHandler, useState } from "react";
+import { useState } from "react";
+import "./App.scss";
 
 export const App = () => {
   const [counter, setCounter] = useState(0);
