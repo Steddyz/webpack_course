@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
 import "webpack-dev-server";
 
@@ -36,6 +37,10 @@ export default (env: EnvVariables) => {
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js"],
+    },
+    devServer: {
+      port: 5000,
+      open: true,
     },
   };
 
