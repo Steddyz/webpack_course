@@ -10,20 +10,26 @@ export default function buildLoaders(
 ): ModuleOptions["rules"] {
   const isDev = options.mode === "development";
 
+  const cssLoaderWithModules = {
+    loader: "css-loader",
+    options: {
+      modules: {
+        localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]",
+      },
+    },
+  };
+
   const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      // Creates `style` nodes from JS strings
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      "css-loader",
-      // Compiles Sass to CSS
+      cssLoaderWithModules,
       "sass-loader",
     ],
   };
 
   const tsLoader = {
-    // ts-loader умеет работать с JXS
+    // ts-loader умеет работать с JSX
     test: /\.tsx?$/,
     use: "ts-loader",
     exclude: /node_modules/,
