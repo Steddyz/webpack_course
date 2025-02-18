@@ -11,8 +11,17 @@ export const App = () => {
     setCounter((prev) => prev + 1);
   };
 
+  if (__PLATFORM__ === "mobile") {
+    return <div>Mobile</div>;
+  }
+
+  if (__PLATFORM__ === "desktop") {
+    return <div>Desktop</div>;
+  }
+
   return (
     <div>
+      <h1>{__PLATFORM__}</h1>
       <div>
         <img style={{ width: "50px" }} src={avatar} alt="avatar" />
       </div>
