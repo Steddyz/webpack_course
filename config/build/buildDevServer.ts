@@ -9,5 +9,7 @@ export default function functionbuildDevServer(
   return {
     port: options.port ?? 3000,
     open: true,
+    // работает в деве. если создавать статику через nginx - надо проксировать в html
+    historyApiFallback: true,
   };
 }
