@@ -1,6 +1,8 @@
 import { ModuleOptions } from "webpack";
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import ReactRefreshTypeScript from "react-refresh-typescript";
 
 import "webpack-dev-server";
 import { BuildOptions } from "./types/types";
@@ -64,6 +66,9 @@ export default function buildLoaders(
       {
         loader: "ts-loader",
         options: {
+          getCustomTransformers: () => ({
+            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+          }),
           transpileOnly: true,
         },
       },

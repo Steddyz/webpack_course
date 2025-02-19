@@ -11,19 +11,19 @@ function TODO(a: number) {
 export const App = () => {
   const [counter, setCounter] = useState(0);
 
-  TODO("5252");
-
   const increment = () => {
     setCounter((prev) => prev + 1);
   };
 
-  if (__PLATFORM__ === "mobile") {
-    return <div>Mobile</div>;
-  }
+  // TODO("5252");
 
-  if (__PLATFORM__ === "desktop") {
-    return <div>Desktop</div>;
-  }
+  // if (__PLATFORM__ === "mobile") {
+  //   return <div>Mobile</div>;
+  // }
+
+  // if (__PLATFORM__ === "desktop") {
+  //   return <div>Desktop</div>;
+  // }
 
   return (
     <div>

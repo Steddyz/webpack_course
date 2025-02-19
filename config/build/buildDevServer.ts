@@ -11,5 +11,6 @@ export default function functionbuildDevServer(
     open: true,
     // работает в деве. если создавать статику через nginx - надо проксировать в html
     historyApiFallback: true,
+    hot: true,
   };
 }
