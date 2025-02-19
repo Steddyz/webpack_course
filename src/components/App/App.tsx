@@ -4,8 +4,14 @@ import { Link, Outlet } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import Calendar from "../../assets/calendar.svg";
 
+function TODO(a: number) {
+  console.log("zxc");
+}
+
 export const App = () => {
   const [counter, setCounter] = useState(0);
+
+  TODO("5252");
 
   const increment = () => {
     setCounter((prev) => prev + 1);

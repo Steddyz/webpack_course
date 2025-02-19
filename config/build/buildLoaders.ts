@@ -58,9 +58,16 @@ export default function buildLoaders(
 
   const tsLoader = {
     // ts-loader умеет работать с JSX
-    test: /\.tsx?$/,
-    use: "ts-loader",
     exclude: /node_modules/,
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+        },
+      },
+    ],
   };
 
   return [scssLoader, tsLoader, assetsLoader, svgLoader];
